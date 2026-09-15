@@ -41,7 +41,7 @@ function daysUntilTravel(travelDate) {
  * Shows who the user is, where they are from, and how far the trip is.
  */
 export function buildLeadText(lead) {
-  const brand = process.env.BRAND_NAME || "Arivo Holidays";
+  const brand = process.env.BRAND_NAME || "Flag Journeys";
   const siteUrl = process.env.SITE_URL || "";
   const days = daysUntilTravel(lead.travelDate);
   let when;

@@ -259,7 +259,7 @@ router.post("/lead/:travellerId/send-invoice", requireSalesOrAdmin, async (req, 
 
     const emailSent = await sendEmail(
       traveller.email,
-      `Your Invoice / Quotation - ${process.env.BRAND_NAME || "Arivo Holidays"}`,
+      `Your Invoice / Quotation - ${process.env.BRAND_NAME || "Flag Journeys"}`,
       htmlContent,
       pdfBuffer,
       filename
@@ -410,7 +410,7 @@ router.get("/lead/:travellerId/invoice-preview", requireSalesOrAdmin, async (req
     const subtotal = invoice.subtotal || 0;
     const gst = invoice.gst || 0;
     const grandTotal = invoice.grandTotal || 0;
-    const brandName = process.env.BRAND_NAME || "Arivo Holidays";
+    const brandName = process.env.BRAND_NAME || "Flag Journeys";
 
     const html = `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>Invoice Preview - ${brandName}</title>

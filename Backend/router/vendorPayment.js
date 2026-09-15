@@ -260,7 +260,7 @@ router.post("/share-email", requireSalesOrAdmin, async (req, res) => {
       <div style="font-family:Arial,sans-serif;max-width:700px;margin:0 auto;">
         <div style="background:linear-gradient(135deg,#6366f1,#3b82f6);padding:24px;border-radius:12px 12px 0 0;">
           <h2 style="color:#fff;margin:0;">Payment History — ${vendorName}</h2>
-          <p style="color:#e0e7ff;margin:4px 0 0;font-size:13px;">${process.env.BRAND_NAME || 'Arivo Holidays'} · Payment Summary</p>
+          <p style="color:#e0e7ff;margin:4px 0 0;font-size:13px;">${process.env.BRAND_NAME || 'Flag Journeys'} · Payment Summary</p>
         </div>
         <div style="padding:24px;background:#f8fafc;border:1px solid #e2e8f0;">
           <div style="display:flex;gap:16px;margin-bottom:20px;">
@@ -293,7 +293,7 @@ router.post("/share-email", requireSalesOrAdmin, async (req, res) => {
           </table>
         </div>
         <div style="padding:16px 24px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:0 0 12px 12px;text-align:center;">
-          <p style="margin:0;font-size:11px;color:#94a3b8;">This is an automated payment summary from ${process.env.BRAND_NAME || 'Arivo Holidays'}</p>
+          <p style="margin:0;font-size:11px;color:#94a3b8;">This is an automated payment summary from ${process.env.BRAND_NAME || 'Flag Journeys'}</p>
         </div>
       </div>`;
 

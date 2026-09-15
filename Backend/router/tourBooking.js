@@ -101,7 +101,7 @@ router.post("/", async (req, res) => {
         hotelRequirement: data.hotelCategory || "Standard",
         departureDate: data.travelStartDate ? new Date(data.travelStartDate).toLocaleDateString('en-IN') : "To Be Decided",
         returnDate: data.travelEndDate ? new Date(data.travelEndDate).toLocaleDateString('en-IN') : "To Be Decided",
-        message: data.travellerMessage || `Thank you for reaching out to ${process.env.BRAND_NAME || 'Arivo Holidays'}. One of our verified travel experts will contact you shortly via Call or WhatsApp to discuss your custom itinerary.`,
+        message: data.travellerMessage || `Thank you for reaching out to ${process.env.BRAND_NAME || 'Flag Journeys'}. One of our verified travel experts will contact you shortly via Call or WhatsApp to discuss your custom itinerary.`,
         filledFrom: targetTraveller.location || targetTraveller.country || "",
         ipAddress: targetTraveller.ipAddress || "Unavailable",
         pageReference: targetTraveller.pageReference || "Website",

@@ -145,7 +145,7 @@ export async function createLead({
       destination: newTraveller.destination || newTraveller.country || "Not Specified",
       registeredPhone: newTraveller.phone || "Not Specified",
       inquirySource: pageReference || "Website Direct",
-      message: travellerMessage || `Thank you for reaching out to ${process.env.BRAND_NAME || 'Arivo Holidays'}. One of our verified travel experts will contact you shortly via Call or WhatsApp to discuss your custom itinerary.`,
+      message: travellerMessage || `Thank you for reaching out to ${process.env.BRAND_NAME || 'Flag Journeys'}. One of our verified travel experts will contact you shortly via Call or WhatsApp to discuss your custom itinerary.`,
       filledFrom: newTraveller.location || newTraveller.country || "",
       ipAddress: ipAddress || "Unavailable",
     };

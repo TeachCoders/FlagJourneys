@@ -904,7 +904,7 @@ router.get("/:leadId/requirements-preview", requireSalesOrAdmin, async (req, res
     }
 
     const r = traveller.requirement;
-    const brandName = process.env.BRAND_NAME || "Arivo Holidays";
+    const brandName = process.env.BRAND_NAME || "Flag Journeys";
     const formatDate = (d) => d ? new Date(d).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : "—";
 
     const rows = [
@@ -989,7 +989,7 @@ router.post("/:leadId/requirements/send-email", requireSalesOrAdmin, async (req,
     );
     await sendEmail(
       traveller.email,
-      `📋 Your Travel Quotation & Requirements - ${traveller.travellerId} | ${process.env.BRAND_NAME || 'Arivo Holidays'}`,
+      `📋 Your Travel Quotation & Requirements - ${traveller.travellerId} | ${process.env.BRAND_NAME || 'Flag Journeys'}`,
       htmlContent
     );
 

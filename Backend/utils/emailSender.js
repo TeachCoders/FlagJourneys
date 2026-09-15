@@ -34,7 +34,7 @@ const buildTransporter = (smtpHost) =>
  * Returns: nodemailer info object. Throws error agar saare attempts fail ho jayein.
  */
 export const sendMailWithFallback = async (mailOptions) => {
-  const fromBrand = `"${process.env.BRAND_NAME || 'Arivo Holidays'}"`;
+  const fromBrand = `"${process.env.BRAND_NAME || 'Flag Journeys'}"`;
   const attempts = [];
 
   if (process.env.SMTP_HOST) {
@@ -102,9 +102,9 @@ export const sendTravellerEmail = async (toEmail, travellerId, name, travelInfo)
     const htmlContent = generateTravellerEmailHTML(name, travellerId, travelInfo);
 
     const mailOptions = {
-      from: `"${process.env.BRAND_NAME || 'Arivo Holidays'}" <${process.env.EMAIL_ID}>`,
+      from: `"${process.env.BRAND_NAME || 'Flag Journeys'}" <${process.env.EMAIL_ID}>`,
       to: toEmail,
-      subject: `Booking Confirmation & Your Travel ID - ${process.env.BRAND_NAME || 'Arivo Holidays'}`,
+      subject: `Booking Confirmation & Your Travel ID - ${process.env.BRAND_NAME || 'Flag Journeys'}`,
       html: htmlContent,
     };
 
@@ -131,9 +131,9 @@ export const sendCancellationEmail = async (toEmail, travellerId, name, agentNam
     const htmlContent = generateCancellationEmailHTML(name, travellerId, agentName);
 
     const mailOptions = {
-      from: `"${process.env.BRAND_NAME || 'Arivo Holidays'} Senior Management" <${process.env.EMAIL_ID}>`,
+      from: `"${process.env.BRAND_NAME || 'Flag Journeys'} Senior Management" <${process.env.EMAIL_ID}>`,
       to: toEmail,
-      subject: `Important: Tour Cancellation & Safety Alert - ${process.env.BRAND_NAME || 'Arivo Holidays'}`,
+      subject: `Important: Tour Cancellation & Safety Alert - ${process.env.BRAND_NAME || 'Flag Journeys'}`,
       html: htmlContent,
     };
 
@@ -164,9 +164,9 @@ export const sendPaymentConfirmationEmail = async (toEmail, travellerId, name, p
     const htmlContent = generatePaymentConfirmationEmailHTML(name, travellerId, password);
 
     const mailOptions = {
-      from: `"${process.env.BRAND_NAME || 'Arivo Holidays'}" <${process.env.EMAIL_ID}>`,
+      from: `"${process.env.BRAND_NAME || 'Flag Journeys'}" <${process.env.EMAIL_ID}>`,
       to: toEmail,
-      subject: `✅ Payment Confirmed & Portal Access - ${travellerId} | ${process.env.BRAND_NAME || 'Arivo Holidays'}`,
+      subject: `✅ Payment Confirmed & Portal Access - ${travellerId} | ${process.env.BRAND_NAME || 'Flag Journeys'}`,
       html: htmlContent,
     };
 
@@ -194,9 +194,9 @@ export const sendBookingConfirmationEmail = async (toEmail, travellerId, name, p
     const htmlContent = generateBookingConfirmationEmailHTML(name, travellerId, password, invoiceNo, totalInvoiced, totalPaid, dueAmount, slabLabel, requiredAmount);
 
     const mailOptions = {
-      from: `"${process.env.BRAND_NAME || 'Arivo Holidays'}" <${process.env.EMAIL_ID}>`,
+      from: `"${process.env.BRAND_NAME || 'Flag Journeys'}" <${process.env.EMAIL_ID}>`,
       to: toEmail,
-      subject: `🎉 Booking Confirmed & Portal Access - ${travellerId} | ${process.env.BRAND_NAME || 'Arivo Holidays'}`,
+      subject: `🎉 Booking Confirmed & Portal Access - ${travellerId} | ${process.env.BRAND_NAME || 'Flag Journeys'}`,
       html: htmlContent,
     };
 
@@ -226,7 +226,7 @@ export const sendEmail = async (toEmail, subject, htmlContent, pdfAttachment = n
   try {
 
     const mailOptions = {
-      from: `"${process.env.BRAND_NAME || 'Arivo Holidays'}" <${process.env.EMAIL_ID}>`,
+      from: `"${process.env.BRAND_NAME || 'Flag Journeys'}" <${process.env.EMAIL_ID}>`,
       to: toEmail,
       subject: subject,
       html: htmlContent,
@@ -262,7 +262,7 @@ export const sendPartnerLeadEmail = async (toEmail, lead, partnerName = null) =>
     logger.warn('sendPartnerLeadEmail: no recipient email provided. Skipping.');
     return false;
   }
-  const brandName = process.env.BRAND_NAME || "Arivo Holidays";
+  const brandName = process.env.BRAND_NAME || "Flag Journeys";
   const htmlContent = generatePartnerLeadEmailHTML(lead, partnerName);
   return sendEmail(
     toEmail,

@@ -1,4 +1,4 @@
-# Architecture — Arivo Holidays
+# Architecture — Flag Journeys
 
 ## High-level
 

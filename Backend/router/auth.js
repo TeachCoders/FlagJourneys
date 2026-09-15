@@ -152,8 +152,8 @@ router.post("/login", async (req, res) => {
     // Clear any stale session cookies from previous domain/deployment so the
     // freshly regenerated session isn't shadowed by an older cookie that the
     // browser may still be sending for the api subdomain.
-    res.clearCookie("connect.sid", { domain: ".arivoholidays.com", path: "/" });
-    res.clearCookie("connect.sid", { domain: "api.arivoholidays.com", path: "/" });
+    res.clearCookie("connect.sid", { domain: ".flagjourneys.com", path: "/" });
+    res.clearCookie("connect.sid", { domain: "api.flagjourneys.com", path: "/" });
     res.clearCookie("connect.sid");
 
     req.session.regenerate((regenErr) => {
@@ -247,8 +247,8 @@ router.post("/logout", (req, res) => {
     if (err) {
       return res.status(500).send({ success: false, message: "Logout failed" });
     }
-    res.clearCookie("connect.sid", { domain: ".arivoholidays.com", path: "/" });
-    res.clearCookie("connect.sid", { domain: "api.arivoholidays.com", path: "/" });
+    res.clearCookie("connect.sid", { domain: ".flagjourneys.com", path: "/" });
+    res.clearCookie("connect.sid", { domain: "api.flagjourneys.com", path: "/" });
     res.clearCookie("connect.sid");
     res.clearCookie("csrf-token");
     res.clearCookie("__Host-csrf-token");

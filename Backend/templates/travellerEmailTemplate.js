@@ -5,7 +5,7 @@
  */
 const bankHolderBlock = () => {
   const holder = process.env.BANK_ACCOUNT_HOLDER;
-  const brandName = process.env.BRAND_NAME || "Arivo Holidays";
+  const brandName = process.env.BRAND_NAME || "Flag Journeys";
   if (!holder) return "";
 
   return `
@@ -30,7 +30,7 @@ const bankHolderBlock = () => {
  */
 const bankDetailsBlock = () => {
   const holder = process.env.BANK_ACCOUNT_HOLDER;
-  const brandName = process.env.BRAND_NAME || "Arivo Holidays";
+  const brandName = process.env.BRAND_NAME || "Flag Journeys";
   if (!holder || !process.env.BANK_ACCOUNT_NUMBER) return "";
 
   const bankRows = [
@@ -68,7 +68,7 @@ const bankDetailsBlock = () => {
  * Triggered when a new lead fills the form.
  */
 export const generateTravellerEmailHTML = (name, travellerId, travelInfo, ownerEmail, ownerMobile) => {
-  const brandName = process.env.BRAND_NAME || "Arivo Holidays";
+  const brandName = process.env.BRAND_NAME || "Flag Journeys";
 
   return `
   <!DOCTYPE html>
@@ -154,7 +154,7 @@ export const generateTravellerEmailHTML = (name, travellerId, travelInfo, ownerE
  * Triggered when an agent marks a lead as "LOST" or "CANCELLED".
  */
 export const generateCancellationEmailHTML = (name, travellerId, agentName, ownerEmail, ownerMobile) => {
-  const brandName = process.env.BRAND_NAME || "Arivo Holidays";
+  const brandName = process.env.BRAND_NAME || "Flag Journeys";
   const bankHolder = process.env.BANK_ACCOUNT_HOLDER || brandName;
   const finalEmail = ownerEmail || process.env.OWNER_EMAIL || "arushka@holidays.com";
   const finalMobile = ownerMobile || process.env.OWNER_MOBILE || "+91 91367 39178";
@@ -240,10 +240,10 @@ export const generateCancellationEmailHTML = (name, travellerId, agentName, owne
  * Triggered when sales agent uploads the payment slip of a traveller.
  */
 export const generatePaymentConfirmationEmailHTML = (name, travellerId, password, ownerEmail, ownerMobile) => {
-  const brandName = process.env.BRAND_NAME || "Arivo Holidays";
+  const brandName = process.env.BRAND_NAME || "Flag Journeys";
   const finalEmail = ownerEmail || process.env.OWNER_EMAIL || "arushka@holidays.com";
   const finalMobile = ownerMobile || process.env.OWNER_MOBILE || "+91 91367 39178";
-  const portalUrl = process.env.BOOKING_PORTAL_URL || "https://booking.arivoholidays.com";
+  const portalUrl = process.env.BOOKING_PORTAL_URL || "https://booking.flagjourneys.com";
 
   return `
   <!DOCTYPE html>
@@ -361,14 +361,14 @@ export const generatePaymentConfirmationEmailHTML = (name, travellerId, password
  * Triggered when sales agent clicks "Send Final Invoice / Quotation" from the Package Builder.
  */
 export const generateInvoiceEmailHTML = (name, invoiceNo, packageDetails, subtotal, gst, discount, grandTotal, ownerEmail, ownerMobile, includeGreeting = true) => {
-  const brandName = process.env.BRAND_NAME || "Arivo Holidays";
+  const brandName = process.env.BRAND_NAME || "Flag Journeys";
   const bankHolder = process.env.BANK_ACCOUNT_HOLDER || brandName;
   const bankHtml = bankDetailsBlock();
   const finalEmail = ownerEmail || process.env.OWNER_EMAIL || "arushka@holidays.com";
   const finalMobile = ownerMobile || process.env.OWNER_MOBILE || "+91 91367 39178";
-  const portalUrl = process.env.BOOKING_PORTAL_URL || "https://booking.arivoholidays.com";
+  const portalUrl = process.env.BOOKING_PORTAL_URL || "https://booking.flagjourneys.com";
   const waNumber = process.env.CHAT_PARTNER_NUMBER || finalMobile.replace(/\D/g, "");
-  const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(`Hi! I would like to confirm Quotation ${invoiceNo || ""} (Arivo Holidays).`)}`;
+  const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(`Hi! I would like to confirm Quotation ${invoiceNo || ""} (Flag Journeys).`)}`;
 
   const traveller = packageDetails.travellerInfo || {};
   const formatDate = (d) => d ? new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) : "";
@@ -718,7 +718,7 @@ export const generateInvoiceEmailHTML = (name, invoiceNo, packageDetails, subtot
  * Triggered when sales agent saves traveller requirements.
  */
 export const generateRequirementsEmailHTML = (name, travellerId, requirements, ownerEmail, ownerMobile, requirementsUrl) => {
-  const brandName = process.env.BRAND_NAME || "Arivo Holidays";
+  const brandName = process.env.BRAND_NAME || "Flag Journeys";
   const finalEmail = ownerEmail || process.env.OWNER_EMAIL || "arushka@holidays.com";
   const finalMobile = ownerMobile || process.env.OWNER_MOBILE || "+91 91367 39178";
 
@@ -812,11 +812,11 @@ export const generateRequirementsEmailHTML = (name, travellerId, requirements, o
  * Includes: invoice, due payment, password, company name payment instruction, complaint handling
  */
 export const generateBookingConfirmationEmailHTML = (name, travellerId, password, invoiceNo, totalInvoiced, totalPaid, dueAmount, slabLabel, requiredAmount) => {
-  const brandName = process.env.BRAND_NAME || "Arivo Holidays";
+  const brandName = process.env.BRAND_NAME || "Flag Journeys";
   const bankHolder = process.env.BANK_ACCOUNT_HOLDER || brandName;
   const finalEmail = process.env.OWNER_EMAIL || "arushka@holidays.com";
   const finalMobile = process.env.OWNER_MOBILE || "+91 91367 39178";
-  const portalUrl = process.env.BOOKING_PORTAL_URL || "https://booking.arivoholidays.com";
+  const portalUrl = process.env.BOOKING_PORTAL_URL || "https://booking.flagjourneys.com";
   const due = Number(dueAmount) || 0;
   const paid = Number(totalPaid) || 0;
   const invoiced = Number(totalInvoiced) || 0;
@@ -1019,9 +1019,9 @@ export const generateBookingConfirmationEmailHTML = (name, travellerId, password
  * @param {object} lead - Traveller lead object with: travellerId, name, email, phone, country, travelDate, pageReference, assignedToUser
  */
 export const generatePartnerLeadEmailHTML = (lead, partnerName) => {
-  const brandName = process.env.BRAND_NAME || "Arivo Holidays";
+  const brandName = process.env.BRAND_NAME || "Flag Journeys";
   const partnerNameStr = partnerName || "Team";
-  const dashboardUrl = process.env.BOOKING_PORTAL_URL || "https://booking.arivoholidays.com";
+  const dashboardUrl = process.env.BOOKING_PORTAL_URL || "https://booking.flagjourneys.com";
   const formatDate = (d) => d ? new Date(d).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : "—";
   const source = lead.pageReference && lead.pageReference !== "/booking" ? lead.pageReference : "Website Direct";
 

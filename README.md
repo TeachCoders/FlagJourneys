@@ -1,4 +1,4 @@
-# Arivo Holidays — Travel Booking Platform
+# Flag Journeys — Travel Booking Platform
 
 Full-stack travel platform: public holiday-package website + admin dashboard + sales/booking backend.
 
@@ -72,7 +72,7 @@ npm run dev               # http://localhost:3000
 | Var | Example | Purpose |
 |---|---|---|
 | `NEXT_PUBLIC_API_BASE_URL` | `http://localhost:5000` | Backend base URL |
-| `NEXT_PUBLIC_BRAND_NAME` | `Arivo Holiday` | Branding |
+| `NEXT_PUBLIC_BRAND_NAME` | `Flag Journey` | Branding |
 | `NEXT_PUBLIC_SITE_URL` | `http://localhost:3000` | Public site URL |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | `919136739178` | WhatsApp deep links |
 | `NEXT_PUBLIC_SALES_PHONE` | `+918447273005` | Sales contact |
@@ -117,7 +117,7 @@ Backend/scripts/restore-db.sh backups/<file>.sql   # restore
 ## Deployment notes (jab target decide ho)
 
 1. `NODE_ENV=production`, `CORS_ORIGIN` = real dashboard domain.
-2. Frontend aur backend **same registrable domain** par rakhein (e.g. `arivoholidays.com` + `api.arivoholidays.com`) — dashboard images ke session cookies `SameSite=Lax` chahiye.
+2. Frontend aur backend **same registrable domain** par rakhein (e.g. `flagjourneys.com` + `api.flagjourneys.com`) — dashboard images ke session cookies `SameSite=Lax` chahiye.
 3. `npx prisma migrate deploy` prod DB par chalein.
 4. `BASE_URL` real domain set karein, phir `node scripts/fix_image_urls.mjs --apply` chala ke DB ke localhost image URLs fix karein.
 5. Gmail app password (`.env` wala) deploy se pehle **rotate** karein.

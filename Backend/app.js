@@ -135,7 +135,7 @@ app.use(
       secure: isProduction,
       httpOnly: true,
       sameSite: "lax",
-      ...(isProduction && { domain: ".arivoholidays.com" }),
+      ...(isProduction && { domain: ".flagjourneys.com" }),
     },
   })
 );

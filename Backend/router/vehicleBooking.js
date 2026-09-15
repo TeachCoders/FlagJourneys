@@ -92,7 +92,7 @@ router.post("/", async (req, res) => {
         serviceType: data.serviceType || "Standard Rental",
         registeredPhone: targetTraveller.phone || "Not Specified",
         originCountry: targetTraveller.country || "Not Specified",
-        message: data.travellerMessage || `Thank you for reaching out to ${process.env.BRAND_NAME || 'Arivo Holidays'}. One of our verified fleet experts will contact you shortly via Call or WhatsApp to finalize your vehicle deployment.`,
+        message: data.travellerMessage || `Thank you for reaching out to ${process.env.BRAND_NAME || 'Flag Journeys'}. One of our verified fleet experts will contact you shortly via Call or WhatsApp to finalize your vehicle deployment.`,
         filledFrom: targetTraveller.location || targetTraveller.country || "",
         ipAddress: targetTraveller.ipAddress || "Unavailable",
         pageReference: targetTraveller.pageReference || "Website",

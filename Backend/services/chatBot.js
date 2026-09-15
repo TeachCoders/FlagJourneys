@@ -16,7 +16,7 @@ function toReply(r) {
   return null;
 }
 
-const BRAND = () => process.env.BRAND_NAME || "Arivo Holidays";
+const BRAND = () => process.env.BRAND_NAME || "Flag Journeys";
 
 const HUMAN_INTENT_KEYWORDS = [
   "agent", "human", "real person", "expert", "call me", "call us", "call on",
@@ -313,7 +313,7 @@ async function getJourneyOptionsForExperience(experienceId, destinationId = null
 
     const buttons = journeys.map((journey) => {
       const displayTitle = journey.title
-        .replace(/\s*\|\s*Arivo\s*Holidays/gi, "")
+        .replace(/\s*\|\s*FlagJourney\s*Holidays/gi, "")
         .replace(/\s*\|\s*Golden\s*Triangle/gi, "")
         .trim();
       return {
@@ -376,7 +376,7 @@ async function getJourneyOptionsForDestination(stateId, stateName) {
 
     const buttons = journeys.map((j) => {
       const displayTitle = j.title
-        .replace(/\s*\|\s*Arivo\s*Holidays/gi, "")
+        .replace(/\s*\|\s*FlagJourney\s*Holidays/gi, "")
         .replace(/\s*\|\s*Golden\s*Triangle/gi, "")
         .trim();
       return {
@@ -976,7 +976,7 @@ async function handleFreeText(text) {
       });
       if (journeys.length > 0) {
         const buttons = journeys.map((j) => {
-          const displayTitle = j.title.replace(/\s*\|\s*Arivo\s*Holidays/gi, "").replace(/\s*\|\s*Golden\s*Triangle/gi, "").trim();
+          const displayTitle = j.title.replace(/\s*\|\s*FlagJourney\s*Holidays/gi, "").replace(/\s*\|\s*Golden\s*Triangle/gi, "").trim();
           return { label: displayTitle, value: `JOURNEY_${j.id}_${displayTitle}` };
         });
         return { replies: [toReply({ text: "Here are our most popular tour packages:", buttons })], nextState: "READY" };

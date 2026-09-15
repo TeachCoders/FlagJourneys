@@ -7,7 +7,7 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 const ask = (q) => new Promise((r) => rl.question(q, r));
 
 async function main() {
-  const email = process.env.SEED_ADMIN_EMAIL || "superadmin@arivoholidays.com";
+  const email = process.env.SEED_ADMIN_EMAIL || "superadmin@flagjourneys.com";
   const existing = await prisma.users.findFirst({ where: { email } });
   if (existing) {
     console.log("Superadmin already exists with email:", email);

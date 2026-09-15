@@ -53,7 +53,7 @@ export async function sendTelegramMessage(text) {
  * @param {object|null} partner - assigned Users record (or null)
  */
 export async function notifyNewChatTelegram(lead, partner = null) {
-  const brand = process.env.BRAND_NAME || "Arivo Holidays";
+  const brand = process.env.BRAND_NAME || "Flag Journeys";
   const siteUrl = process.env.SITE_URL || "";
   const isChat = lead.source === "chat";
   const titleEmoji = isChat ? "💬" : "🔔";
@@ -83,7 +83,7 @@ export async function notifyNewChatTelegram(lead, partner = null) {
  * @param {string} messageText - the tourist's latest message
  */
 export async function notifyNewChatMessageTelegram(conversation, messageText) {
-  const brand = process.env.BRAND_NAME || "Arivo Holidays";
+  const brand = process.env.BRAND_NAME || "Flag Journeys";
   const siteUrl = process.env.SITE_URL || "";
   let text =
     `💬 <b>New Chat Message — ${brand}</b>\n\n` +
@@ -101,7 +101,7 @@ export async function notifyNewChatMessageTelegram(conversation, messageText) {
  * @param {object} payment
  */
 export async function notifyPaymentReceiptUploadedTelegram(traveller, payment) {
-  const brand = process.env.BRAND_NAME || "Arivo Holidays";
+  const brand = process.env.BRAND_NAME || "Flag Journeys";
   const siteUrl = process.env.SITE_URL || "";
   let text =
     `💳 <b>PAYMENT RECEIPT UPLOADED — ${brand}</b>\n\n` +
@@ -124,7 +124,7 @@ export async function notifyPaymentReceiptUploadedTelegram(traveller, payment) {
  * @param {string} notes
  */
 export async function notifyLeadCancelledTelegram(traveller, cancellationReason, notes) {
-  const brand = process.env.BRAND_NAME || "Arivo Holidays";
+  const brand = process.env.BRAND_NAME || "Flag Journeys";
   const siteUrl = process.env.SITE_URL || "";
   let text =
     `⚠️ <b>LEAD CANCELLED (RE-AUDIT REQUIRED) — ${brand}</b>\n\n` +

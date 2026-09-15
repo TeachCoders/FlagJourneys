@@ -4,7 +4,6 @@ import path from "path";
 import crypto from "crypto";
 import sharp from "sharp";
 import { logger } from "./logger.js";
-import { isSupabaseStorageEnabled, isPublicFolder, uploadToSupabaseStorage } from "./supabaseStorage.js";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
@@ -40,28 +39,6 @@ const CONVERTIBLE_MIMETYPES = ["image/jpeg", "image/png", "image/gif"];
 
 // Images sharp can process (JPEG/PNG/GIF → WebP; WebP → recompress/resize)
 const PROCESSABLE_MIMETYPES = [...CONVERTIBLE_MIMETYPES, "image/webp"];
-
-// If Supabase Storage is enabled and the folder is public, move the final file
-// from local disk to the cloud and expose its permanent public URL on
-// file.publicUrl. Private folders (documents/, user/) stay local + protected.
-const pushFileToSupabase = async (file, folderName) => {
-  if (!isSupabaseStorageEnabled() || !isPublicFolder(folderName)) return;
-  const relPath = path.relative(path.join(process.cwd(), "public"), file.path).replace(/\\/g, "/");
-  let buffer;
-  try {
-    buffer = fs.readFileSync(file.path);
-  } catch {
-    return;
-  }
-  const publicUrl = await uploadToSupabaseStorage({ key: relPath, buffer, contentType: file.mimetype });
-  if (publicUrl) {
-    try {
-      fs.unlinkSync(file.path);
-    } catch { /* noop */ }
-    file.publicUrl = publicUrl;
-    logger.info("Uploaded to Supabase Storage", { key: relPath });
-  }
-};
 
 /**
  * Upload images with flexible folder + filename support
@@ -155,7 +132,6 @@ export const uploadImage = (folderName = "images") => {
               logger.error("WebP conversion failed, keeping original:", { message: convErr.message });
             }
           }
-          await pushFileToSupabase(req.file, sanitizeFolder(req.body?.folder) || folderName);
           next();
         });
       };
@@ -191,7 +167,6 @@ export const uploadImage = (folderName = "images") => {
                   logger.error("WebP conversion failed for", { filename: file.filename, message: convErr.message });
                 }
               }
-              await pushFileToSupabase(file, sanitizeFolder(req.body?.folder) || folderName);
             }
           }
           next();

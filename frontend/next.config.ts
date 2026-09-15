@@ -11,7 +11,6 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "res.cloudinary.com" },
       { protocol: "https", hostname: "images.unsplash.com" },
-      { protocol: "https", hostname: "*.supabase.co" },
       ...(process.env.NODE_ENV !== "production"
         ? [{ protocol: "http" as const, hostname: "localhost" }]
         : []),

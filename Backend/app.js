@@ -24,7 +24,6 @@ import tourPackageRouter from "./router/tourPackageRouter.js";
 import notificationRouter from "./router/notification.js";
 import chatRouter from "./router/chat.js";
 import { uploadImage, isValidUploadFolder } from "./utils/uploadImage.js";
-import { isSupabaseStorageEnabled, isPublicFolder, uploadToSupabaseStorage } from "./utils/supabaseStorage.js";
 import { requireSalesOrAdmin } from "./middleware/requireSalesOrAdmin.js";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
@@ -353,14 +352,6 @@ app.post("/media/replace", requireSalesOrAdmin, upload.single("file"), async (re
     cleanup();
 
     let url = `/${relPath.replace(/\\/g, "/")}`;
-    if (isSupabaseStorageEnabled() && isPublicFolder(path.dirname(relPath))) {
-      const publicUrl = await uploadToSupabaseStorage({
-        key: relPath.replace(/\\/g, "/"),
-        buffer: fs.readFileSync(targetPath),
-        contentType: req.file.mimetype,
-      });
-      if (publicUrl) url = publicUrl;
-    }
 
     return res.json({ success: true, url });
   } catch (error) {

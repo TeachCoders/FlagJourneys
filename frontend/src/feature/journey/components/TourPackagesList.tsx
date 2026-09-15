@@ -157,7 +157,7 @@ export default function TourPackagesList({
           <HeroSlider images={heroImages} alt={title} />
         ) : (
           <div className="absolute inset-0 w-full h-full bg-slate-900 flex items-center justify-center">
-            <img src="/logo.png" alt="Arivo Holidays" className="w-48 h-48 opacity-10 object-contain grayscale" />
+            <img src="/logo.png" alt="Flag Journeys" className="w-48 h-48 opacity-10 object-contain grayscale" />
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30" />

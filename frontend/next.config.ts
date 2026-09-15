@@ -27,7 +27,7 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
-    const apiOrigin = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/^https?:\/\//, "") || "api.arivoholidays.com";
+    const apiOrigin = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/^https?:\/\//, "") || "api.flagjourneys.com";
     return [
       {
         source: "/:path*",
@@ -52,11 +52,10 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     const backendUrl = process.env.API_BASE_URL || "http://localhost:5000";
-    // Public image folders live in Supabase Storage "public" bucket. In
-    // production nginx serves these via the site's own domain; locally we
-    // proxy the same folders to the Supabase CDN so images render in dev too.
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://khgopfgebkkdlnwwoanx.supabase.co";
-    const cdn = `${supabaseUrl}/storage/v1/object/public/public`;
+    // Public image folders are served locally by the backend (Backend/public).
+    // In production nginx serves these via the site's own domain; locally the
+    // backend serves them from disk, so we proxy the same folders there.
+    const cdn = backendUrl;
     const cdnFolders = [
       "content",
       "india-tour",

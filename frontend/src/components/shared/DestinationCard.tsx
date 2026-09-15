@@ -33,14 +33,14 @@ export default function DestinationCard({
       {image ? (
         <Image
           src={image}
-          alt={`${title} Tour Packages & Sightseeing | Arivo Holidays`}
+          alt={`${title} Tour Packages & Sightseeing | Flag Journeys`}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       ) : (
         <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#1C1C1C] via-[#243b3b] to-[#1C1C1C] flex items-center justify-center">
-          <Image src="/logo.png" alt="Arivo Holidays" width={90} height={90} className="opacity-35 object-contain filter drop-shadow-md brightness-200" style={{ width: "auto", height: "auto" }} />
+          <Image src="/logo.png" alt="Flag Journeys" width={90} height={90} className="opacity-35 object-contain filter drop-shadow-md brightness-200" style={{ width: "auto", height: "auto" }} />
         </div>
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />

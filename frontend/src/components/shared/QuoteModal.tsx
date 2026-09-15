@@ -61,7 +61,7 @@ export function QuoteModal({ children }: { children: ReactNode }) {
               <li className="flex gap-4">
                 <div className="w-2 h-2 rounded-full bg-[#D4561A] mt-2.5 shrink-0" />
                 <p className="text-[#5B6375] text-[15px] md:text-base leading-relaxed">
-                  Grab the deal and start packing your bags for an indelible holiday with Arivo Holidays.
+                  Grab the deal and start packing your bags for an indelible holiday with Flag Journeys.
                 </p>
               </li>
             </ul>

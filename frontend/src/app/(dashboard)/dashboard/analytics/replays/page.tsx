@@ -3,7 +3,7 @@ import AnalyticsLayout from '@/components/analytics/AnalyticsLayout';
 import ReplaysBrowser from './ReplaysBrowser';
 
 export const metadata = {
-  title: 'Session Replays | Arivo Holidays',
+  title: 'Session Replays | Flag Journeys',
 };
 
 export default async function SessionReplaysPage() {

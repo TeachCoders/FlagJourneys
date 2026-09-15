@@ -15,14 +15,57 @@ function fmtDate(iso: string | null) {
   return new Date(iso).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" });
 }
 
+const BOT_LABEL: Record<string, string> = {
+  search_crawler: "Search crawler (Googlebot etc.)",
+  ai_crawler: "AI crawler (GPTBot etc.)",
+  other_bot: "Bot / scraper",
+  cloud_ip: "Cloud / datacenter IP",
+  multi_ua: "Multi-UA device farm (same IP, many devices)",
+};
+
 export default function ReplaysBrowser() {
-  const { sessions, isLoading, error } = useReplaySessions();
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [kind, setKind] = useState<"all" | "humans" | "bots">("all");
+  const [page, setPage] = useState(1);
+  const { sessions, totals, page: currentPage, totalPages, isLoading, error } = useReplaySessions({ page, kind });
   const { replay, isLoading: replayLoading } = useReplay(selectedId);
   const deleteReplay = useDeleteReplay();
 
+  const switchKind = (next: "all" | "humans" | "bots") => {
+    setKind(next);
+    setPage(1);
+    setSelectedId(null);
+  };
+
   return (
     <div className="space-y-6">
+      {!isLoading && !error && (
+        <div className="flex flex-wrap items-center gap-2">
+          {(
+            [
+              ["all", `All (${totals.all})`],
+              ["humans", `Humans (${totals.humans})`],
+              ["bots", `Bots (${totals.bots})`],
+            ] as const
+          ).map(([key, label]) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => switchKind(key)}
+              className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-colors cursor-pointer ${
+                kind === key
+                  ? "bg-slate-800 text-white shadow-sm"
+                  : key === "bots"
+                    ? "border border-amber-200 bg-amber-50 text-amber-700 hover:bg-amber-100"
+                    : "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
+
       {isLoading && (
         <div className="h-72 animate-pulse rounded-2xl border border-slate-200 bg-white p-6">
           <div className="mb-4 h-4 w-32 rounded bg-slate-200" />
@@ -41,8 +84,9 @@ export default function ReplaysBrowser() {
 
       {!isLoading && !error && sessions.length === 0 && (
         <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center text-sm text-slate-500 shadow-sm">
-          No recordings yet. Browse the public site in another tab — batches
-          arrive every ~5 seconds and appear here.
+          {kind === "bots"
+            ? "No bot sessions on record. Nice."
+            : "No recordings yet. Browse the public site in another tab — batches arrive every ~5 seconds and appear here."}
         </div>
       )}
 
@@ -55,6 +99,7 @@ export default function ReplaysBrowser() {
                   <th className="rounded-tl-lg px-5 py-2.5 font-medium">Started</th>
                   <th className="px-5 py-2.5 font-medium">Last Activity</th>
                   <th className="px-5 py-2.5 font-medium">Country</th>
+                  <th className="px-5 py-2.5 font-medium">Type</th>
                   <th className="px-5 py-2.5 font-medium">Device</th>
                   <th className="px-5 py-2.5 font-medium">Visitor</th>
                   <th className="rounded-tr-lg px-5 py-2.5 text-right font-medium">Actions</th>
@@ -73,6 +118,20 @@ export default function ReplaysBrowser() {
                         <td className="whitespace-nowrap px-5 py-2.5 font-medium text-slate-800">{fmtDate(s.startedAt)}</td>
                         <td className="whitespace-nowrap px-5 py-2.5 text-slate-600">{fmtDate(s.lastEventAt)}</td>
                         <td className="whitespace-nowrap px-5 py-2.5 text-slate-600">{s.country || "—"}</td>
+                        <td className="whitespace-nowrap px-5 py-2.5">
+                          {s.isBot ? (
+                            <span
+                              title={BOT_LABEL[s.botSource || "other_bot"]}
+                              className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-bold text-amber-700"
+                            >
+                              🤖 Bot
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-bold text-emerald-700">
+                              Human
+                            </span>
+                          )}
+                        </td>
                         <td className="whitespace-nowrap px-5 py-2.5 text-slate-600">{s.deviceType || "—"}</td>
                         <td className="px-5 py-2.5 font-mono text-xs text-slate-400">
                           {(s.visitorId || s.sessionId).slice(0, 8)}…
@@ -97,7 +156,7 @@ export default function ReplaysBrowser() {
                       </tr>
                       {isOpen && (
                         <tr className="bg-white">
-                          <td colSpan={6} className="border-b border-indigo-100 p-0">
+                          <td colSpan={7} className="border-b border-indigo-100 p-0">
                             <div className="border-t border-indigo-100 bg-slate-50">
                               <div className="flex flex-wrap items-center justify-between gap-2 px-5 py-2.5">
                                 <span className="text-sm font-medium text-slate-700">
@@ -135,6 +194,38 @@ export default function ReplaysBrowser() {
               </tbody>
             </table>
           </div>
+
+          {totalPages > 1 && (
+            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 px-5 py-3">
+              <span className="text-xs text-slate-500">
+                Page {currentPage} of {totalPages} · {sessions.length} shown
+              </span>
+              <div className="flex gap-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  disabled={currentPage <= 1}
+                  onClick={() => {
+                    setPage(currentPage - 1);
+                    setSelectedId(null);
+                  }}
+                >
+                  ← Prev
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  disabled={currentPage >= totalPages}
+                  onClick={() => {
+                    setPage(currentPage + 1);
+                    setSelectedId(null);
+                  }}
+                >
+                  Next →
+                </Button>
+              </div>
+            </div>
+          )}
         </section>
       )}
     </div>

@@ -441,7 +441,7 @@ export default function Layout({ children }: LayoutProps) {
                 <LayoutDashboard size={17} className="text-white" />
               </div>
               <div>
-                <p className="text-sm font-extrabold text-white leading-tight tracking-tight">Arivo Holidays</p>
+                <p className="text-sm font-extrabold text-white leading-tight tracking-tight">Flag Journeys</p>
                 <p className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: "#2E8B8B" }}>Admin Panel</p>
               </div>
             </div>

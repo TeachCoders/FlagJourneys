@@ -20,7 +20,7 @@ import { QuoteModal } from "@/components/shared/QuoteModal";
 import FaqSection from "@/feature/home/components/FaqSection";
 import type { CmsPage } from "@/feature/cms/type";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://flagjourneys.com";
 
 export const revalidate = 60;
 
@@ -28,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Travel Experiences",
     description:
-      "Hand-picked travel experiences across India — honeymoons, heritage, culinary, yoga, nature & more. Book your perfect trip with Arivo Holidays.",
+      "Hand-picked travel experiences across India — honeymoons, heritage, culinary, yoga, nature & more. Book your perfect trip with Flag Journeys.",
     alternates: { canonical: "/travel-experiences" },
   };
 }
@@ -123,7 +123,7 @@ export default async function TravelExperiencesPage() {
 
   const defaultFaqs = [
     {
-      question: "What are Travel Experiences at Arivo Holidays?",
+      question: "What are Travel Experiences at Flag Journeys?",
       answer: "Travel Experiences are theme-based tour packages categorized by your trip style — such as Honeymoon, Heritage & Culture, Wellness & Yoga, Wildlife Safaris, and Pilgrimage Tours across India."
     },
     {

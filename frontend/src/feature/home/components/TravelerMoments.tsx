@@ -25,7 +25,7 @@ const TravelerMoments: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <SectionLabel>Real Stories</SectionLabel>
-            <h2 className="h2 text-[#1C1C1C] mt-2">#ArivoMoments</h2>
+            <h2 className="h2 text-[#1C1C1C] mt-2">#FlagJourneyMoments</h2>
             <p className="mt-2 text-base text-[#555]">Join thousands of happy travelers making memories for a lifetime.</p>
           </div>
           <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold transition-colors">
@@ -37,7 +37,7 @@ const TravelerMoments: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[220px]">
           {moments.map((item, idx) => {
             const isLarge = idx === 0 || idx === 3;
-            const altText = [item.caption, item.location].filter(Boolean).join(' at ') || 'Arivo Holidays traveler moment';
+            const altText = [item.caption, item.location].filter(Boolean).join(' at ') || 'Flag Journeys traveler moment';
             return (
               <div
                 key={item.id}

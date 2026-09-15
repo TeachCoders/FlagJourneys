@@ -94,7 +94,7 @@ export default function ExportMenu({ title, columns, rows }: ExportMenuProps) {
             <h1 className="text-xl font-bold text-slate-900">{title}</h1>
             <p className="mt-1 text-xs text-slate-500">
               Generated {new Date().toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })}
-              {" · "}Arivo Holidays UX Analytics
+              {" · "}Flag Journeys UX Analytics
             </p>
           </div>
           {rows.length === 0 ? (

@@ -7,7 +7,7 @@ import CmsGuestGalleryWrapper from "@/feature/guestGallery/components/CmsGuestGa
 
 const cleanTitle = (rawTitle: string) => {
   if (!rawTitle) return "";
-  return rawTitle.replace(/\s*\|\s*Arivo\s*Holidays?/gi, "").trim();
+  return rawTitle.replace(/\s*\|\s*FlagJourney\s*Holidays?/gi, "").trim();
 };
 
 export default function CmsPageDetail({ page }: { page: CmsPage }) {

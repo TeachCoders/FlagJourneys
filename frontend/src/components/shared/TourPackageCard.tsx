@@ -15,7 +15,7 @@ function PackageImageWithFallback({ src, alt }: { src?: string; alt?: string }) 
   return (
     <FallbackImage
       src={src}
-      alt={alt || "Arivo Holidays Package"}
+      alt={alt || "Flag Journeys Package"}
       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
       fallbackSrc="/logo-with-name.png"
       theme="light"
@@ -56,7 +56,7 @@ export default function TourPackageCard({ journey, contextName }: { journey: Jou
       <Link href={href} className="relative h-[240px] w-full overflow-hidden shrink-0 block">
         <PackageImageWithFallback
           src={journey.thumbImg || journey.banner?.images?.[0] || ""}
-          alt={`${journey.h1Title || journey.title}${journey.destination ? ` - ${journey.destination}` : ""} Tour Package | Arivo Holidays`}
+          alt={`${journey.h1Title || journey.title}${journey.destination ? ` - ${journey.destination}` : ""} Tour Package | Flag Journeys`}
         />
 
         {/* Gradients */}

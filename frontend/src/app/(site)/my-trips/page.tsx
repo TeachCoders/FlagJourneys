@@ -40,12 +40,12 @@ export default function TravellerPortalPage() {
 
   // Check saved session
   useEffect(() => {
-    const saved = localStorage.getItem("arivo_traveller_session");
+    const saved = localStorage.getItem("flagjourney_traveller_session");
     if (saved) {
       try {
         setTravellerData(JSON.parse(saved));
       } catch (e) {
-        localStorage.removeItem("arivo_traveller_session");
+        localStorage.removeItem("flagjourney_traveller_session");
       }
     }
   }, []);
@@ -73,7 +73,7 @@ export default function TravellerPortalPage() {
       }
 
       setTravellerData(data.data);
-      localStorage.setItem("arivo_traveller_session", JSON.stringify(data.data));
+      localStorage.setItem("flagjourney_traveller_session", JSON.stringify(data.data));
     } catch (err: any) {
       setErrorMsg(err.message || "An unexpected error occurred.");
     } finally {
@@ -82,7 +82,7 @@ export default function TravellerPortalPage() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("arivo_traveller_session");
+    localStorage.removeItem("flagjourney_traveller_session");
     setTravellerData(null);
     setUploadSuccessMsg("");
   };
@@ -146,7 +146,7 @@ export default function TravellerPortalPage() {
               <ShieldCheck size={16} /> Official Traveller Portal
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1C1C1C]">
-              Arivo Holidays <span className="text-[#2E8B8B]">Trip Portal</span>
+              Flag Journeys <span className="text-[#2E8B8B]">Trip Portal</span>
             </h1>
           </div>
 
@@ -228,7 +228,7 @@ export default function TravellerPortalPage() {
 
             <div className="mt-8 pt-6 border-t border-slate-100 text-center">
               <p className="text-xs text-slate-400">
-                Need assistance? Call Arivo Concierge at{" "}
+                Need assistance? Call FlagJourney Concierge at{" "}
                 <a href={`tel:${(process.env.NEXT_PUBLIC_SALES_PHONE || "+919136739178").replace(/[^0-9+]/g, "")}`} className="text-[#2E8B8B] font-bold hover:underline">
                   {process.env.NEXT_PUBLIC_SALES_PHONE || "+91 91367 39178"}
                 </a>
@@ -374,7 +374,7 @@ export default function TravellerPortalPage() {
                 </div>
                 <h3 className="text-xl font-bold text-[#1C1C1C]">Upload Advance Payment Receipt</h3>
                 <p className="text-xs text-slate-500 mt-1">
-                  If you have transferred advance booking amount to freeze your hotels & cabs, upload the receipt/screenshot here. This directly registers your payment into Arivo Holidays official audit ledger!
+                  If you have transferred advance booking amount to freeze your hotels & cabs, upload the receipt/screenshot here. This directly registers your payment into Flag Journeys official audit ledger!
                 </p>
               </div>
 

@@ -15,7 +15,7 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = await fetchBySlug<TravelExperience>("/holidays/by-slug", slug);
-  if (!data) return { title: "Travel Experience Not Found | Arivo Holidays" };
+  if (!data) return { title: "Travel Experience Not Found | Flag Journeys" };
   const title = data.seoTitle || data.title;
   const seoDescription = stripHtml(data.seoDescription || data.moreDescription || "").slice(0, 160);
   const canonical = canonicalFor(data, slug);

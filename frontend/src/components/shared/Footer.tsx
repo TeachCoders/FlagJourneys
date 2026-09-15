@@ -99,7 +99,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
           <p className="text-xs text-[#777]">
-            &copy; {new Date().getFullYear()} Arivo Holidays. All rights reserved.
+            &copy; {new Date().getFullYear()} Flag Journeys. All rights reserved.
           </p>
         </div>
       </footer>
@@ -197,10 +197,10 @@ export const Footer: React.FC = () => {
                   <Mail className="w-4 h-4 text-[#2E8B8B]" />
                 </div>
                 <a
-                  href="mailto:support@arivoholidays.com"
+                  href="mailto:support@flagjourneys.com"
                   className="text-[#a8a8a8] hover:text-white transition-colors"
                 >
-                  support@arivoholidays.com
+                  support@flagjourneys.com
                 </a>
               </div>
               <div className="flex items-center gap-3">
@@ -208,7 +208,7 @@ export const Footer: React.FC = () => {
                   <WhatsAppIcon className="w-4 h-4 text-[#2E8B8B]" />
                 </div>
                 <a
-                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919136739178"}?text=${encodeURIComponent("Hi Arivo Holidays, I want to inquire about a holiday tour package.")}`}
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919136739178"}?text=${encodeURIComponent("Hi Flag Journeys, I want to inquire about a holiday tour package.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#a8a8a8] hover:text-white transition-colors"
@@ -222,7 +222,7 @@ export const Footer: React.FC = () => {
 
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#999]">
           <p className="relative text-[#999] hover:text-white transition-colors duration-200">
-            &copy; {new Date().getFullYear()} Arivo Holidays. All rights reserved.
+            &copy; {new Date().getFullYear()} Flag Journeys. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/about-us" className="hover:text-white transition-colors">

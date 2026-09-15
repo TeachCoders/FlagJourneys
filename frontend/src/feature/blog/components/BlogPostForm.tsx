@@ -25,7 +25,7 @@ interface BlogPostFormProps {
 }
 
 const baseBlogFields: EntityField[] = [
-  { name: "author", label: "Author", placeholder: "e.g. Arivo Team" },
+  { name: "author", label: "Author", placeholder: "e.g. FlagJourney Team" },
   { name: "tags", label: "Tags", placeholder: "e.g. rajasthan, heritage, forts (comma separated)" },
   { name: "publishedAt", label: "Published Date", placeholder: "e.g. 2026-08-05" },
 ];

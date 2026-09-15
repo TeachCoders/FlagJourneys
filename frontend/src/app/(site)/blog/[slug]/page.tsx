@@ -20,7 +20,7 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await fetchBySlug<BlogPost>("/blog/by-slug", slug);
-  if (!post) return { title: "Blog Post Not Found | Arivo Holidays" };
+  if (!post) return { title: "Blog Post Not Found | Flag Journeys" };
   const seoDescription = stripHtml(post.seoDescription || post.moreDescription || "").slice(0, 160);
   const title = post.seoTitle || post.title;
   const canonical = post.canonical || `/blog/${post.slug}`;

@@ -7,7 +7,7 @@ import RichContent from "@/components/shared/RichContent";
 import { fetchPackageBySlug } from "@/feature/tourPackages/public-server";
 import { stripHtml } from "@/lib/utils";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://flagjourneys.com";
 
 function absoluteUrl(src?: string): string | undefined {
   if (!src) return undefined;
@@ -20,7 +20,7 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const pkg = await fetchPackageBySlug(slug);
-  if (!pkg) return { title: "Package Not Found | Arivo Holidays" };
+  if (!pkg) return { title: "Package Not Found | Flag Journeys" };
   const title = pkg.name;
   const description = stripHtml(pkg.shortDescription || pkg.description || "").slice(0, 160);
   const canonical = `/packages/${pkg.slug}`;
@@ -85,14 +85,17 @@ export default async function PackageDetailPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <JsonLd
-        data={touristTripSchema({
-          name: pkg.name,
-          description: pkg.shortDescription || pkg.description || undefined,
-          image: bannerUrl || undefined,
-          url: `/packages/${pkg.slug}`,
-        })}
-      />
+      {pkg.pricePerPerson && pkg.pricePerPerson > 0 && (
+        <JsonLd
+          data={touristTripSchema({
+            name: pkg.name,
+            description: pkg.shortDescription || pkg.description || undefined,
+            image: bannerUrl || undefined,
+            url: `/packages/${pkg.slug}`,
+            price: pkg.pricePerPerson,
+          })}
+        />
+      )}
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },

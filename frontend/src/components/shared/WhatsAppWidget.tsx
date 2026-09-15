@@ -11,7 +11,7 @@ export default function WhatsAppWidget() {
   if (hidden) return null;
 
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919136739178";
-  const message = "Hi Arivo Holidays, I want to inquire about a custom holiday tour package.";
+  const message = "Hi Flag Journeys, I want to inquire about a custom holiday tour package.";
 
   return (
     <a

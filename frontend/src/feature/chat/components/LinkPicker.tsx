@@ -134,14 +134,14 @@ export const LinkPicker: React.FC<{
           <input
             value={value.linkTitle}
             onChange={(e) => onChange({ ...value, linkTitle: e.target.value })}
-            placeholder="Link name (e.g. — Arivo Packages page)"
+            placeholder="Link name (e.g. — FlagJourney Packages page)"
             className="w-full bg-white border border-zinc-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-[#2E8B8B]"
             maxLength={500}
           />
           <input
             value={value.linkUrl}
             onChange={(e) => onChange({ ...value, linkUrl: e.target.value })}
-            placeholder="https://www.arivoholidays.com/..."
+            placeholder="https://www.flagjourneys.com/..."
             className="w-full bg-white border border-zinc-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-[#2E8B8B]"
             maxLength={500}
           />

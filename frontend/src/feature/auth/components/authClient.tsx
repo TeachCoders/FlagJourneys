@@ -38,11 +38,11 @@ export function AuthClient() {
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-16 h-16 rounded-2xl flex items-center justify-center overflow-hidden shadow-lg">
-                <img src="/logo.png" alt="Arivo Holidays" className="w-full h-full object-contain" />
+                <img src="/logo.png" alt="Flag Journeys" className="w-full h-full object-contain" />
               </div>             
            
             <h1 className="text-4xl font-extrabold leading-tight mb-4">
-              Arivo Holidays<br />
+              Flag Journeys<br />
             
             </h1>
              </div>
@@ -81,7 +81,7 @@ export function AuthClient() {
 
           {/* Footer */}
           <p className="text-center text-xs text-slate-400 mt-6">
-            &copy; {new Date().getFullYear()} {process.env.NEXT_PUBLIC_BRAND_NAME || "Arivo Holidays"}. All rights reserved.
+            &copy; {new Date().getFullYear()} {process.env.NEXT_PUBLIC_BRAND_NAME || "Flag Journeys"}. All rights reserved.
           </p>
         </div>
       </div>

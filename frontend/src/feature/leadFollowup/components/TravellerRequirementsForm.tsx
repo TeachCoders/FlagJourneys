@@ -114,7 +114,7 @@
     const { mutate: markReqSent } = useMarkRequirementsSentMutation();
     const requirementsUrl = `${API_BASE}/traveller-lead/${leadId}/requirements-preview`;
     const passwordText = lead?.defaultPassword ? `\n🔑 Password: ${lead.defaultPassword}` : "";
-    const portalLoginUrl = process.env.NEXT_PUBLIC_BOOKING_PORTAL_URL || "https://arivoholidays.com/my-trips";
+    const portalLoginUrl = process.env.NEXT_PUBLIC_BOOKING_PORTAL_URL || "https://flagjourneys.com/my-trips";
     const waFooter = `\n\n🆔 Traveller ID: ${lead?.travellerId || ""}${passwordText}\n🌐 Portal Login: ${portalLoginUrl}\n📄 View Details: ${requirementsUrl}`;
 
     if (!isEditMode && hasData) {
@@ -142,7 +142,7 @@
               </button>
               <WhatsAppShareBtn
                 phone={lead?.phone}
-                  message={`Dear ${lead?.name || "Guest"}, thank you for sharing your travel requirements with us! 🙏 We've noted everything — Cities: ${existing.cityNames || "—"}, Dates: ${existing.startDate ? `${formatDateDisplay(existing.startDate)} → ${formatDateDisplay(existing.endDate)}` : "—"}, Budget: ₹${Number(existing.budget || 0).toLocaleString("en-IN")}. Our team is already working on a customized package for you. We'll share it with you soon! - ${process.env.NEXT_PUBLIC_BRAND_NAME || "Arivo Holidays"}${waFooter}`}
+                  message={`Dear ${lead?.name || "Guest"}, thank you for sharing your travel requirements with us! 🙏 We've noted everything — Cities: ${existing.cityNames || "—"}, Dates: ${existing.startDate ? `${formatDateDisplay(existing.startDate)} → ${formatDateDisplay(existing.endDate)}` : "—"}, Budget: ₹${Number(existing.budget || 0).toLocaleString("en-IN")}. Our team is already working on a customized package for you. We'll share it with you soon! - ${process.env.NEXT_PUBLIC_BRAND_NAME || "Flag Journeys"}${waFooter}`}
                 disabled={isWhatsappSent}
                 onClick={() => markReqSent({ leadId })}
                 label={isWhatsappSent ? "WhatsApp Sent ✓" : "WhatsApp"}
@@ -233,7 +233,7 @@
                 </span>
                 <WhatsAppShareBtn
                   phone={lead?.phone}
-                  message={`Dear ${lead?.name || "Guest"}, thank you for sharing your travel requirements with us! 🙏 We've noted everything — Cities: ${formData.cityNames || "—"}, Dates: ${formData.startDate ? `${format(new Date(formData.startDate), "dd MMM")} → ${format(new Date(formData.endDate), "dd MMM yyyy")}` : "—"}, Budget: ₹${Number(formData.budget || 0).toLocaleString("en-IN")}. Our team is already working on a customized package for you. We'll share it with you soon! - ${process.env.NEXT_PUBLIC_BRAND_NAME || "Arivo Holidays"}${waFooter}`}
+                  message={`Dear ${lead?.name || "Guest"}, thank you for sharing your travel requirements with us! 🙏 We've noted everything — Cities: ${formData.cityNames || "—"}, Dates: ${formData.startDate ? `${format(new Date(formData.startDate), "dd MMM")} → ${format(new Date(formData.endDate), "dd MMM yyyy")}` : "—"}, Budget: ₹${Number(formData.budget || 0).toLocaleString("en-IN")}. Our team is already working on a customized package for you. We'll share it with you soon! - ${process.env.NEXT_PUBLIC_BRAND_NAME || "Flag Journeys"}${waFooter}`}
                   label="Share on WhatsApp"
                 />
               </div>

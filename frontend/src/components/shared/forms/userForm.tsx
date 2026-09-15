@@ -78,7 +78,7 @@ const handleSubmit = async (
       return;
     }
 
-    const activeDomain = "arivoholidays.com";
+    const activeDomain = "flagjourneys.com";
 
     const fullEmail = `${formData.emailPrefix}@${activeDomain}`;
     const submissionData = new FormData();
@@ -146,7 +146,7 @@ const handleSubmit = async (
               className="rounded-r-none border-r-0 border-gray-200 focus:border-brand-500 focus:ring-0"
             />
             <div className="bg-gray-50 border border-gray-200 border-l-0 px-3 py-1 text-sm text-gray-500 rounded-r-lg min-w-fit h-8 flex items-center justify-center">
-              @arivoholidays.com
+              @flagjourneys.com
             </div>
           </div>
         </div>

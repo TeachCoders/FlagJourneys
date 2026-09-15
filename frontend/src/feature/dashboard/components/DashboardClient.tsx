@@ -182,7 +182,7 @@ export default function DashboardClient() {
             {getGreeting()}, {firstName}
           </h1>
           <p className="text-slate-500 font-medium mt-1.5 flex items-center gap-2">
-            <Calendar size={14} /> {today} · Arivo Business Intelligence
+            <Calendar size={14} /> {today} · FlagJourney Business Intelligence
           </p>
         </div>
         <div className="flex items-center gap-3">

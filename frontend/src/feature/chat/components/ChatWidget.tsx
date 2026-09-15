@@ -7,13 +7,13 @@ import { startChat, sendChatMessage, pollChatMessages, fetchGeo, closeConversati
 import { COUNTRIES, getCountryByCode } from "@/feature/leads/data/countries";
 import { LinkedText } from "@/feature/chat/components/LinkedText";
 
-const BRAND = process.env.NEXT_PUBLIC_BRAND_NAME || "Arivo Holidays";
+const BRAND = process.env.NEXT_PUBLIC_BRAND_NAME || "Flag Journeys";
 const WHATSAPP_NUMBER =
   process.env.NEXT_PUBLIC_CHAT_PARTNER_NUMBER ||
   process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ||
   "919136739178";
 const SALES_PHONE = process.env.NEXT_PUBLIC_SALES_PHONE || "+919136739178";
-const STORAGE_KEY = "arivo_chat_v1";
+const STORAGE_KEY = "flagjourney_chat_v1";
 
 // Unique negative ids for optimistic messages (never collide with server ids).
 let optimisticSeq = 0;

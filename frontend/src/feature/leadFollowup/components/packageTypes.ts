@@ -53,7 +53,7 @@ export const DEFAULT_NOTES =
 
 // ── Default Cancellation Policy (Industry Standard) ──
 export const DEFAULT_CANCELLATION_POLICY =
-  "CANCELLATION POLICY (Arivo Holidays)\n\n" +
+  "CANCELLATION POLICY (Flag Journeys)\n\n" +
   "• Cancelled 30 days or more before travel date → 10% of total package cost\n" +
   "• Cancelled 15–30 days before travel date → 25% of total package cost\n" +
   "• Cancelled 7–15 days before travel date → 50% of total package cost\n" +

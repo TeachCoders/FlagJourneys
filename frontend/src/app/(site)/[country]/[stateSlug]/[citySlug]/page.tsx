@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 async function cmsMetadata(page: CmsPage | null): Promise<Metadata> {
-  if (!page) return { title: "Page Not Found | Arivo Holidays" };
+  if (!page) return { title: "Page Not Found | Flag Journeys" };
   const seoDescription = stripHtml(page.seoDescription || page.moreDescription || "").slice(0, 160);
   const title = page.seoTitle || page.title;
   const canonical = page.canonical || `/${page.slug}`;

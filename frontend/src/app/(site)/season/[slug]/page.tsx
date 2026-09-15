@@ -9,7 +9,7 @@ import { HOME_FAQS } from "@/lib/homeFaqs";
 import type { Season } from "@/feature/season/type";
 import type { Journey, PaginatedResponse as JourneyPage } from "@/feature/journey/type";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://flagjourneys.com";
 
 function absoluteUrl(src?: string | null): string | undefined {
   if (!src) return undefined;
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const season = await fetchBySlug<Season>("/season/by-slug", slug);
 
-  if (!season) return { title: "Page Not Found | Arivo Holidays" };
+  if (!season) return { title: "Page Not Found | Flag Journeys" };
 
   const title = season.seoTitle || season.title;
   const seoDescription = stripHtml(season.seoDescription || season.overView || "").slice(0, 160) || undefined;

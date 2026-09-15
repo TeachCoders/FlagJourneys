@@ -438,7 +438,7 @@ export default function VendorPaymentClient() {
                                         `Total Amount: ₹${(a.totalAmount || 0).toLocaleString()}\n` +
                                         `Paid: ₹${((a.payments || []).reduce((s: number, p: any) => s + (p.paidAmount || 0), 0)).toLocaleString()}\n` +
                                         `Pending: ₹${((a.payments || []).reduce((s: number, p: any) => s + (p.pendingAmount || 0), 0)).toLocaleString()}\n\n` +
-                                        `— ${process.env.NEXT_PUBLIC_BRAND_NAME || "Arivo Holidays"}`
+                                        `— ${process.env.NEXT_PUBLIC_BRAND_NAME || "Flag Journeys"}`
                                       )}`}
                                       target="_blank"
                                       rel="noopener noreferrer"

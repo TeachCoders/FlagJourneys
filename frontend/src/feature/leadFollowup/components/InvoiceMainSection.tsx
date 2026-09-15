@@ -183,7 +183,7 @@ export default function InvoiceMainSection({
     lines.push("I've also sent the detailed quotation to your email. Please go through it and let me know if you'd like any changes — we're happy to customize it for you!");
     lines.push("");
     lines.push("Looking forward to making your trip memorable!");
-    lines.push(`- ${process.env.NEXT_PUBLIC_BRAND_NAME || "Arivo Holidays"}`);
+    lines.push(`- ${process.env.NEXT_PUBLIC_BRAND_NAME || "Flag Journeys"}`);
     return lines.join("\n");
   };
 
@@ -462,7 +462,7 @@ export default function InvoiceMainSection({
             <div>
               <img
                 src="/logo-with-name.png"
-                alt="Arivo Holidays"
+                alt="Flag Journeys"
                 className="h-14 w-auto object-contain mb-2"
                 onError={(e) => {
                   (e.target as HTMLElement).style.display = 'none';
@@ -495,7 +495,7 @@ export default function InvoiceMainSection({
                 OFFICIAL QUOTATION
               </span>
               <h2 className="text-base font-black text-slate-900 uppercase tracking-wide">
-                {(process.env.NEXT_PUBLIC_BRAND_NAME || "ARIVO HOLIDAYS").toUpperCase()}
+                {(process.env.NEXT_PUBLIC_BRAND_NAME || "FLAG JOURNEYS").toUpperCase()}
               </h2>
               <div className="text-xs text-slate-500 space-y-0.5 mt-1 font-medium">
                 {quotationNo && <p className="font-mono text-slate-700 font-bold">Quote #{quotationNo}</p>}
@@ -773,7 +773,7 @@ export default function InvoiceMainSection({
           )}
 
           <div className="mt-10 pt-6 border-t border-brand-neutral-border text-center">
-            <p className="text-sm font-bold text-brand-neutral">Thank You for Choosing {process.env.NEXT_PUBLIC_BRAND_NAME || "Arivo Holidays"}</p>
+            <p className="text-sm font-bold text-brand-neutral">Thank You for Choosing {process.env.NEXT_PUBLIC_BRAND_NAME || "Flag Journeys"}</p>
             <p className="text-xs text-slate-400 mt-1">Premium Travel Experiences</p>
           </div>
         </div>

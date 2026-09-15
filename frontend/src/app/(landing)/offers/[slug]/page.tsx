@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: campaign.seoTitle || campaign.title || "Special Travel Offer",
-    description: campaign.seoDescription || "Book your dream trip with Arivo Holidays.",
+    description: campaign.seoDescription || "Book your dream trip with Flag Journeys.",
   };
 }
 

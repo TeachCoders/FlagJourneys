@@ -3,7 +3,7 @@ import AnalyticsLayout from '@/components/analytics/AnalyticsLayout';
 import SearchIntentPanel from '@/components/analytics/SearchIntentPanel';
 
 export const metadata = {
-  title: 'Search Intent | Arivo Holidays',
+  title: 'Search Intent | Flag Journeys',
 };
 
 export default async function SearchIntentPage() {

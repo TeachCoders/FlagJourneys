@@ -404,7 +404,7 @@ export default function AdLandingPageForm({ mode = "create", initialData }: AdLa
                 maxImages={10}
                 folderPath={seoData.slug ? `${seoData.slug}/lp-gallery` : "lp-gallery"}
               />
-              <p className="text-xs text-slate-400 mt-1">Upload multiple attraction, activity, or sightseeing photos to display in the &apos;Why Book With Arivo Holidays&apos; photo gallery slider.</p>
+              <p className="text-xs text-slate-400 mt-1">Upload multiple attraction, activity, or sightseeing photos to display in the &apos;Why Book With Flag Journeys&apos; photo gallery slider.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
@@ -551,7 +551,7 @@ export default function AdLandingPageForm({ mode = "create", initialData }: AdLa
                               <div className="w-10 h-10 rounded-full bg-white/25 backdrop-blur-md border border-white/40 flex items-center justify-center mb-1 shadow-md">
                                 <Compass size={20} className="text-slate-800" />
                               </div>
-                              <span className="text-[9px] font-black uppercase tracking-widest text-slate-800">Arivo</span>
+                              <span className="text-[9px] font-black uppercase tracking-widest text-slate-800">FlagJourney</span>
                             </div>
                           )}
                           <div className="flex-1 min-w-0">

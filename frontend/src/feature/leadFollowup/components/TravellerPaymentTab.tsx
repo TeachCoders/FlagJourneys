@@ -195,7 +195,7 @@ export default function TravellerPaymentTab({ lead }: TravellerPaymentTabProps) 
             </span>
             <WhatsAppShareBtn
               phone={lead?.phone}
-              message={`Dear ${lead?.name || "Guest"}, your payment of Rs.${Number(paymentAmount || 0).toLocaleString()} has been recorded for Traveller ID: ${lead?.travellerId}. Thank you for choosing ${process.env.NEXT_PUBLIC_BRAND_NAME || "Arivo Holidays"}!`}
+              message={`Dear ${lead?.name || "Guest"}, your payment of Rs.${Number(paymentAmount || 0).toLocaleString()} has been recorded for Traveller ID: ${lead?.travellerId}. Thank you for choosing ${process.env.NEXT_PUBLIC_BRAND_NAME || "Flag Journeys"}!`}
               label="Share on WhatsApp"
             />
           </div>

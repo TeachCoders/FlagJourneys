@@ -14,7 +14,7 @@ export default function ExitIntentModal() {
     if (window.innerWidth < 768) return;
 
     // Check session storage to only trigger once per session
-    if (sessionStorage.getItem("arivo_exit_intent_shown") === "true") {
+    if (sessionStorage.getItem("flagjourney_exit_intent_shown") === "true") {
       setHasTriggered(true);
       return;
     }
@@ -24,7 +24,7 @@ export default function ExitIntentModal() {
       if (!hasTriggered) {
         setOpen(true);
         setHasTriggered(true);
-        sessionStorage.setItem("arivo_exit_intent_shown", "true");
+        sessionStorage.setItem("flagjourney_exit_intent_shown", "true");
       }
     }, 15000);
 
@@ -34,7 +34,7 @@ export default function ExitIntentModal() {
   const handleOpenChange = (isOpen: boolean) => {
     setOpen(isOpen);
     if (!isOpen) {
-      sessionStorage.setItem("arivo_exit_intent_shown", "true");
+      sessionStorage.setItem("flagjourney_exit_intent_shown", "true");
     }
   };
 

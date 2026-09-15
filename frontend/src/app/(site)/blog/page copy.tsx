@@ -10,7 +10,7 @@ import { API_BASE } from "@/lib/apiClient";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Travel Blog | Arivo Holidays",
+  title: "Travel Blog | Flag Journeys",
   description:
     "Travel guides, itineraries and tips for India tours — destinations, honeymoon, heritage and more.",
   alternates: { canonical: "/blog" },
@@ -72,7 +72,7 @@ export default async function BlogPage({
           
           <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-10 text-center">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[11px] font-black uppercase tracking-[0.2em] text-[#D4561A] mb-6 drop-shadow-md bg-white rounded-full">
-              <Sparkles size={14} className="text-[#D4561A]" /> Arivo Travel Blog
+              <Sparkles size={14} className="text-[#D4561A]" /> FlagJourney Travel Blog
             </span>
             <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight drop-shadow-2xl [text-shadow:_0_4px_24px_rgb(0_0_0_/_0.8)] max-w-[1400px] mx-auto">
               Stories, Guides & Travel Inspiration

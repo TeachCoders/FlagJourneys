@@ -469,7 +469,7 @@ export const Header: React.FC = () => {
           <Link href="/" className="flex items-center gap-2 group shrink-0">
             <img
               src="/logo-with-name.png"
-              alt="Arivo Holidays"
+              alt="Flag Journeys"
               className="h-[68px] sm:h-[72px] md:h-[76px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
             />
           </Link>
@@ -645,7 +645,7 @@ export const Header: React.FC = () => {
                   onClick={handleMobileClose}
                   className="text-[19px] font-extrabold tracking-tight text-[#1C1C1C]"
                 >
-                  Arivo<span className="text-[#2E8B8B]"> Holidays</span>
+                  FlagJourney<span className="text-[#2E8B8B]"> Holidays</span>
                 </Link>
                 <button
                   onClick={handleMobileClose}
@@ -669,7 +669,7 @@ export const Header: React.FC = () => {
                   </button>
                 </QuoteModal>
                 <a
-                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919136739178"}?text=${encodeURIComponent("Hi Arivo Holidays, I want to inquire about a custom holiday tour package.")}`}
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919136739178"}?text=${encodeURIComponent("Hi Flag Journeys, I want to inquire about a custom holiday tour package.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#2E8B8B] py-3 text-base font-bold text-white transition-colors hover:bg-[#266f6f] active:scale-95"

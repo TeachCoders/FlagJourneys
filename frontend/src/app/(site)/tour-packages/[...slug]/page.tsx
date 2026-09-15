@@ -17,7 +17,7 @@ import type { Journey, PaginatedResponse as JourneyPage } from "@/feature/journe
 import type { CmsPage } from "@/feature/cms/type";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://flagjourneys.com";
 
 function absoluteUrl(src?: string | null): string | undefined {
   if (!src) return undefined;
@@ -225,7 +225,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       };
     }
     default:
-      return { title: "Page Not Found | Arivo Holidays" };
+      return { title: "Page Not Found | Flag Journeys" };
   }
 }
 
@@ -387,19 +387,24 @@ export default async function TourPackageCatchAllPage({ params }: Props) {
       }
       breadcrumbItems.push({ name: journey.title, path: canonical });
 
-      const schema = journey
-        ? graphSchema([
-            touristTripSchema({
+      const tourProductNode =
+        journey.pricePerPerson && journey.pricePerPerson > 0
+          ? touristTripSchema({
               name: journey.title,
               description: journey.seoDescription || journey.overView || undefined,
               image: journey.banner?.images?.[0] || journey.thumbImg || undefined,
               url: canonical,
+              price: journey.pricePerPerson,
               touristType: journey.travelExperiences?.map((e) => e.title) || [],
               itinerary: journey.days?.map((d) => ({
                 day: `Day ${d.day}`,
                 description: d.seoDescription || undefined,
               })),
-            }),
+            })
+          : null;
+      const schema = journey
+        ? graphSchema([
+            ...(tourProductNode ? [tourProductNode] : []),
             breadcrumbSchema(breadcrumbItems),
             faqSchema(journeyFaqs),
           ])

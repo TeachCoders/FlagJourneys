@@ -23,6 +23,7 @@ import ContactFormClient from "@/feature/contact/components/ContactFormClient";
 
 export const revalidate = 60;
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://flagjourneys.com";
 const SALES_PHONE = process.env.NEXT_PUBLIC_SALES_PHONE || "+91 91367 39178";
 const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919136739178";
 const CLEAN_PHONE = SALES_PHONE.replace(/[^0-9+]/g, "");
@@ -31,10 +32,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const cmsPage = await fetchBySlug<CmsPage>("/cms/by-slug", "contact-us");
 
   const title =
-    cmsPage?.seoTitle || cmsPage?.title || "Contact Us | Arivo Holidays - Get in Touch for Custom Tours";
+    cmsPage?.seoTitle || cmsPage?.title || "Contact Us | Flag Journeys - Get in Touch for Custom Tours";
   const description =
     stripHtml(cmsPage?.seoDescription || cmsPage?.moreDescription || "").slice(0, 160) ||
-    "Contact Arivo Holidays for custom India tour packages, cab rentals, and 24/7 travel assistance. Reach us via phone, email, or visit our head office in New Delhi.";
+    "Contact Flag Journeys for custom India tour packages, cab rentals, and 24/7 travel assistance. Reach us via phone, email, or visit our head office in New Delhi.";
   const canonical = cmsPage?.canonical || "/contact-us";
 
   return {
@@ -42,7 +43,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     keywords:
       cmsPage?.seoKeyword ||
-      "contact arivo holiday, travel agency contact delhi, india tour package inquiry, arivo holidays phone number",
+      "contact flagjourney holiday, travel agency contact delhi, india tour package inquiry, flagjourney holidays phone number",
     alternates: { canonical },
     openGraph: {
       title,
@@ -64,11 +65,13 @@ export default async function ContactUsPage() {
   const contactOrganizationSchema = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
-    name: "Arivo Holidays",
-    url: "http://localhost:3000",
-    logo: "http://localhost:3000/logo.png",
+    name: "Flag Journeys",
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.png`,
+    image: `${SITE_URL}/logo.png`,
+    priceRange: "₹₹",
     telephone: CLEAN_PHONE,
-    email: "support@arivoholidays.com",
+    email: "support@flagjourneys.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "102, Destination Hub, MG Road",
@@ -89,7 +92,7 @@ export default async function ContactUsPage() {
       "@type": "ContactPoint",
       telephone: CLEAN_PHONE,
       contactType: "customer service",
-      availableLanguage: ["English", "Hindi"],
+      availableLanguage: ["English"],
     },
   };
 
@@ -157,7 +160,7 @@ export default async function ContactUsPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-extrabold text-slate-900 font-heading">Why Plan With Us?</h3>
-                  <p className="text-xs font-semibold text-[#2E8B8B]">Arivo Holidays Travel Promise</p>
+                  <p className="text-xs font-semibold text-[#2E8B8B]">Flag Journeys Travel Promise</p>
                 </div>
               </div>
 
@@ -294,13 +297,13 @@ export default async function ContactUsPage() {
                 <h3 className="text-lg font-bold text-slate-900 mt-0.5">Send an Email</h3>
                 <div className="text-sm text-slate-600 leading-relaxed mt-2 space-y-1">
                   <p>
-                    <a href="mailto:support@arivoholidays.com" className="hover:text-indigo-600 transition-colors font-medium">
-                      support@arivoholidays.com
+                    <a href="mailto:support@flagjourneys.com" className="hover:text-indigo-600 transition-colors font-medium">
+                      support@flagjourneys.com
                     </a>
                   </p>
                   <p>
-                    <a href="mailto:info@arivoholidays.com" className="hover:text-indigo-600 transition-colors font-medium">
-                      info@arivoholidays.com
+                    <a href="mailto:info@flagjourneys.com" className="hover:text-indigo-600 transition-colors font-medium">
+                      info@flagjourneys.com
                     </a>
                   </p>
                 </div>
@@ -367,7 +370,7 @@ export default async function ContactUsPage() {
                 <span>Can I customize an itinerary according to my budget?</span>
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed pl-6">
-                Yes, absolutely! Every package listed on Arivo Holidays can be tailored to suit your specific dates, preferred hotel category (Standard, Deluxe, Luxury), vehicle type, and budget.
+                Yes, absolutely! Every package listed on Flag Journeys can be tailored to suit your specific dates, preferred hotel category (Standard, Deluxe, Luxury), vehicle type, and budget.
               </p>
             </div>
 

@@ -117,7 +117,7 @@ export default function CarRequirementsForm({ leadId, lead }: Props) {
   const { mutate: markReqSent } = useMarkRequirementsSentMutation();
   const requirementsUrl = `${API_BASE}/traveller-lead/${leadId}/requirements-preview`;
   const passwordText = lead?.defaultPassword ? `\n🔑 Password: ${lead.defaultPassword}` : "";
-  const portalLoginUrl = process.env.NEXT_PUBLIC_BOOKING_PORTAL_URL || "https://arivoholidays.com/my-trips";
+  const portalLoginUrl = process.env.NEXT_PUBLIC_BOOKING_PORTAL_URL || "https://flagjourneys.com/my-trips";
   const waFooter = `\n\n🆔 Traveller ID: ${lead?.travellerId || ""}${passwordText}\n🌐 Portal Login: ${portalLoginUrl}\n📄 View Details: ${requirementsUrl}`;
 
   // ─── VIEW MODE ────────────────────────────────────────────────────
@@ -145,7 +145,7 @@ export default function CarRequirementsForm({ leadId, lead }: Props) {
             </button>
             <WhatsAppShareBtn
               phone={lead?.phone}
-              message={`Dear ${lead?.name || "Guest"}, your car booking requirements are noted! 🚗 Pickup: ${formData.pickupLocation || "—"}, Drop: ${formData.dropLocation || "—"}, Date: ${formData.travelDate ? formatDateDisplay(formData.travelDate) : "—"}, Vehicle: ${formData.vehiclePreference || "—"}. We'll share the quotation soon! - ${process.env.NEXT_PUBLIC_BRAND_NAME || "Arivo Holidays"}${waFooter}`}
+              message={`Dear ${lead?.name || "Guest"}, your car booking requirements are noted! 🚗 Pickup: ${formData.pickupLocation || "—"}, Drop: ${formData.dropLocation || "—"}, Date: ${formData.travelDate ? formatDateDisplay(formData.travelDate) : "—"}, Vehicle: ${formData.vehiclePreference || "—"}. We'll share the quotation soon! - ${process.env.NEXT_PUBLIC_BRAND_NAME || "Flag Journeys"}${waFooter}`}
               disabled={isWhatsappSent}
               onClick={() => markReqSent({ leadId })}
               label={isWhatsappSent ? "WhatsApp Sent ✓" : "WhatsApp"}
@@ -227,7 +227,7 @@ export default function CarRequirementsForm({ leadId, lead }: Props) {
               </span>
               <WhatsAppShareBtn
                 phone={lead?.phone}
-                message={`Dear ${lead?.name || "Guest"}, your car booking requirements are noted! 🚗 Pickup: ${formData.pickupLocation || "—"}, Drop: ${formData.dropLocation || "—"}, Date: ${formData.travelDate ? format(new Date(formData.travelDate), "dd MMM yyyy") : "—"}, Vehicle: ${formData.vehiclePreference || "—"}. We'll share the quotation soon! - ${process.env.NEXT_PUBLIC_BRAND_NAME || "Arivo Holidays"}${waFooter}`}
+                message={`Dear ${lead?.name || "Guest"}, your car booking requirements are noted! 🚗 Pickup: ${formData.pickupLocation || "—"}, Drop: ${formData.dropLocation || "—"}, Date: ${formData.travelDate ? format(new Date(formData.travelDate), "dd MMM yyyy") : "—"}, Vehicle: ${formData.vehiclePreference || "—"}. We'll share the quotation soon! - ${process.env.NEXT_PUBLIC_BRAND_NAME || "Flag Journeys"}${waFooter}`}
                 label="Share on WhatsApp"
               />
             </div>

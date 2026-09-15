@@ -16,10 +16,25 @@ import type { Season, PaginatedResponse as SeasonPage } from "@/feature/season/t
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Arivo Holidays | Customized Holiday Tour Packages and Cab Rentals",
-  description: "Book customized holiday tour packages, luxury stays, verified cabs, and local tour guides at guaranteed best prices across Kashmir, Kerala, Himachal, Rajasthan and international destinations.",
-  alternates: { canonical: "/" },
-};
+  metadataBase: new URL("https://flagjourneys.com"),
+  title: "Flag Journeys | Premier India Inbound Tour Operator & Local DMC",
+  description:
+    "Leading India Inbound Tour Operator offering bespoke luxury tours, private car rentals, certified local guides, and custom holiday packages across India for international travelers.",
+  alternates: { canonical: "https://flagjourneys.com" },
+  openGraph: {
+    title: "Flag Journeys | Premier India Inbound Tour Operator & Local DMC",
+    description:
+      "Bespoke India holiday packages, private luxury transport, and local tour guides for international tourists.",
+    url: "https://flagjourneys.com",
+    siteName: "Flag Journeys India",
+    locale: "en_US", // International inbound clients target karne ke liye en_US optimal hai
+    type: "website",
+  },
+  other: {
+    "geo.region": "IN",
+    "geo.placename": "India",
+  },
+};;
 
 export default async function Home() {
   const [initialStates, initialCities, initialJourneys, initialSeasons] = await Promise.all([

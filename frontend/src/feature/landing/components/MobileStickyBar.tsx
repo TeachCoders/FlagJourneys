@@ -48,7 +48,7 @@ export default function MobileStickyBar({
       successToast("Lead saved! Redirecting to WhatsApp...");
       setShowModal(false);
       
-      const text = encodeURIComponent(`Hi Arivo Holidays, I am ${formData.name}. I need price details for ${destinationName}.`);
+      const text = encodeURIComponent(`Hi Flag Journeys, I am ${formData.name}. I need price details for ${destinationName}.`);
       window.open(`https://wa.me/${whatsappNumber}?text=${text}`, "_blank");
       setFormData({ name: "", phone: "", travelDate: "" });
     } catch (err: any) {
@@ -58,7 +58,7 @@ export default function MobileStickyBar({
     }
   };
 
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi Arivo Holidays, I am interested in ${destinationName} deals. Please share customized package itinerary & pricing.`)}`;
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi Flag Journeys, I am interested in ${destinationName} deals. Please share customized package itinerary & pricing.`)}`;
 
   return (
     <>

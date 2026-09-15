@@ -4,7 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { AppProviders } from "@/components/providers/app-provider";
 import { SentryErrorBoundary } from "@/components/shared/sentry-error-boundary";
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://flagjourneys.com";
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-MHMD6R9X";
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-BJQ7L9MPX3";
 import JsonLd from "@/components/shared/JsonLd";
@@ -23,20 +23,20 @@ const nunito = Nunito_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Arivo Holidays | Customized Holiday Tour Packages and Cab Rentals",
-    template: "%s | Arivo Holidays",
+    default: "Flag Journeys | Customized Holiday Tour Packages and Cab Rentals",
+    template: "%s | Flag Journeys",
   },
   description: "Book customized holiday tour packages, luxury stays, verified cabs, and local tour guides across Kashmir, Kerala, Himachal, Rajasthan and international destinations.",
   openGraph: {
     type: "website",
-    siteName: "Arivo Holidays",
+    siteName: "Flag Journeys",
     locale: "en_IN",
     url: SITE_URL,
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Arivo Holidays" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Flag Journeys" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arivo Holidays",
+    title: "Flag Journeys",
     description: "Customized holiday tour packages and cab rentals across India.",
     images: ["/og-image.png"],
   },

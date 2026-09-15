@@ -75,7 +75,7 @@ export default function SeoFields({
 }: SeoFieldsProps) {
   const [mediaOpen, setMediaOpen] = useState(false);
   const userEditedSlug = useRef(false);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://arivoholidays.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flagjourneys.com";
 
   useEffect(() => {
     if (formData.slug) {

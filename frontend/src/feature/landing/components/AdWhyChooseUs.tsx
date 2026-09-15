@@ -66,7 +66,7 @@ export default function AdWhyChooseUs({ images = [], hideGallery = false }: AdWh
           {/* Left Column: Heading & 4 Text Features */}
           <div>
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-6">
-              Why Book With Arivo Holidays?
+              Why Book With Flag Journeys?
             </h2>
             <p className="text-slate-600 text-lg mb-10 leading-relaxed">
               Unlike huge travel portals that treat you like a booking number, we focus on delivering personalized, high-quality local experiences with complete transparency.

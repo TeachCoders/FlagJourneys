@@ -25,7 +25,7 @@ export default function AdAccordionSection({
   const defaultFaqs = [
     {
       question: `How can I customize an itinerary for ${destinationName}?`,
-      answer: `Every Arivo Holidays package can be tailored to your preferences. Simply fill out our quick enquiry form or tap WhatsApp to connect with a dedicated travel specialist. We can adjust hotel tiers, duration, private vehicle options, sightseeing pace, and special inclusions within 15 minutes.`,
+      answer: `Every Flag Journeys package can be tailored to your preferences. Simply fill out our quick enquiry form or tap WhatsApp to connect with a dedicated travel specialist. We can adjust hotel tiers, duration, private vehicle options, sightseeing pace, and special inclusions within 15 minutes.`,
     },
     {
       question: `Are all transfers, driver allowances, toll taxes, and parking fees included?`,
@@ -37,7 +37,7 @@ export default function AdAccordionSection({
     },
     {
       question: `Is 24/7 on-trip assistance provided during our tour?`,
-      answer: `Absolutely. From the moment you land or reach your first destination, a personal Arivo Holidays trip executive is assigned to your booking. You will have a dedicated contact for immediate assistance with hotel check-ins, local recommendations, driver coordination, or emergency support.`,
+      answer: `Absolutely. From the moment you land or reach your first destination, a personal Flag Journeys trip executive is assigned to your booking. You will have a dedicated contact for immediate assistance with hotel check-ins, local recommendations, driver coordination, or emergency support.`,
     },
     {
       question: `What is your cancellation and rescheduling policy?`,

@@ -272,7 +272,7 @@ function CountryContent({
             {heroTitle}
           </h1>
 
-          <div className="mt-4 sm:mt-7 flex flex-wrap items-center justify-center gap-3">
+          <div className="hidden lg:flex mt-4 sm:mt-7 flex-wrap items-center justify-center gap-3">
             <QuoteModal>
               <button
                 type="button"

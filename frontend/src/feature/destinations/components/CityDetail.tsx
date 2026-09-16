@@ -148,7 +148,7 @@ function CityContent({
   return (
     <div>
       {/* ===== HERO ===== */}
-      <section className="relative h-[300px] sm:h-[380px] md:h-[520px] overflow-hidden bg-slate-900">
+      <section className=" relative h-[300px] sm:h-[380px] md:h-[520px] overflow-hidden bg-slate-900">
         {heroImages.length > 0 ? (
           <>
             <HeroSlider images={heroImages} alt={city.title} />
@@ -179,7 +179,7 @@ function CityContent({
             {heroTitle}
           </h1>
 
-          <div className="mt-4 sm:mt-7 flex flex-wrap items-center justify-center gap-3">
+          <div className="hidden lg:flex mt-4 sm:mt-7 flex-wrap items-center justify-center gap-3">
             <QuoteModal>
               <button
                 type="button"

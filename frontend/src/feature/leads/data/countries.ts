@@ -1,3 +1,5 @@
+import apiClient from "@/lib/apiClient";
+
 export interface Country {
   name: string;
   code: string;
@@ -100,21 +102,17 @@ export interface GeoMeta {
 }
 
 export function detectGeoFromIP(): Promise<GeoMeta | null> {
-  return fetch("https://api.ipify.org?format=json")
-    .then((res) => res.json())
-    .then((ipData) => {
-      const ip = ipData?.ip;
-      if (!ip) return null;
-      return fetch(`https://ipapi.co/${ip}/json/`)
-        .then((res) => res.json())
-        .then((geo) => {
-          if (!geo || geo.error || !geo.country_code) return { ip, country: null, location: "" };
-          const country = getCountryByCode(geo.country_code) || null;
-          const cityRegion = [geo.city, geo.region].filter(Boolean).join(", ");
-          const location = country && cityRegion ? `${cityRegion} (${country.name})` : cityRegion;
-          return { ip, country, location };
-        })
-        .catch(() => ({ ip, country: null, location: "" }));
+  return apiClient
+    .get("/chat/geo")
+    .then((res) => {
+      const geo = res.data?.data;
+      if (!geo) return null;
+      const country = getCountryByCode(geo.countryCode || "") || null;
+      return {
+        ip: geo.ip || "",
+        country,
+        location: geo.location || "",
+      };
     })
     .catch(() => null);
 }

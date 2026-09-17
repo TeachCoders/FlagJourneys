@@ -387,21 +387,18 @@ export default async function TourPackageCatchAllPage({ params }: Props) {
       }
       breadcrumbItems.push({ name: journey.title, path: canonical });
 
-      const tourProductNode =
-        journey.pricePerPerson && journey.pricePerPerson > 0
-          ? touristTripSchema({
-              name: journey.title,
-              description: journey.seoDescription || journey.overView || undefined,
-              image: journey.banner?.images?.[0] || journey.thumbImg || undefined,
-              url: canonical,
-              price: journey.pricePerPerson,
-              touristType: journey.travelExperiences?.map((e) => e.title) || [],
-              itinerary: journey.days?.map((d) => ({
-                day: `Day ${d.day}`,
-                description: d.seoDescription || undefined,
-              })),
-            })
-          : null;
+      const tourProductNode = touristTripSchema({
+        name: journey.title,
+        description: journey.seoDescription || journey.overView || undefined,
+        image: journey.banner?.images?.[0] || journey.thumbImg || undefined,
+        url: canonical,
+        price: journey.pricePerPerson && journey.pricePerPerson > 0 ? journey.pricePerPerson : undefined,
+        touristType: journey.travelExperiences?.map((e) => e.title) || [],
+        itinerary: journey.days?.map((d) => ({
+          day: `Day ${d.day}`,
+          description: d.seoDescription || undefined,
+        })),
+      });
       const schema = journey
         ? graphSchema([
             ...(tourProductNode ? [tourProductNode] : []),

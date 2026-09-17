@@ -85,17 +85,15 @@ export default async function PackageDetailPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {pkg.pricePerPerson && pkg.pricePerPerson > 0 && (
-        <JsonLd
+      <JsonLd
           data={touristTripSchema({
             name: pkg.name,
             description: pkg.shortDescription || pkg.description || undefined,
             image: bannerUrl || undefined,
             url: `/packages/${pkg.slug}`,
-            price: pkg.pricePerPerson,
+            price: pkg.pricePerPerson && pkg.pricePerPerson > 0 ? pkg.pricePerPerson : undefined,
           })}
         />
-      )}
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },

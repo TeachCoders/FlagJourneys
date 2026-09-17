@@ -229,6 +229,15 @@ app.use(
   })
 );
 
+// API responses are data for the SPA, not indexable pages. Googlebot must be
+// allowed to fetch them for rendering (see robots.txt – /api is no longer
+// disallowed), but they must never appear in the index. Static files are
+// served by express.static above and never reach this middleware.
+app.use((req, res, next) => {
+  res.setHeader("X-Robots-Tag", "noindex, nofollow");
+  next();
+});
+
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 20,
